@@ -4,9 +4,9 @@
 
 static char input[100];
 
-void print_image(FILE *fptr);
+void printImage(FILE *fptr);
 
-void print_image(FILE *fptr)
+void printImage(FILE *fptr)
 {
     char readFileString[MAX_FILE_LEN];
 
@@ -52,7 +52,7 @@ int main()
      return 1;
    }
 
-   print_image(fptr);
+   printImage(fptr);
 
    fclose(fptr);
 
