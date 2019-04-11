@@ -28,6 +28,7 @@ void yyerror(char *s);
 %token USE
 %token DROP
 %token THROW
+%token KILL
 %token UNLOCK
 %token OPEN
 %token NORTH SOUTH EAST WEST
@@ -38,7 +39,7 @@ void yyerror(char *s);
 
 %%
 
-program	: statement_list '\n' newline
+program	: newline statement_list '\n' newline
 //{ printf("STRING: %s\n", $1.str); }
 		| newline
 		;
@@ -49,6 +50,32 @@ statement_list : statement_list statement
 		;
 		
 statement	: GO { strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }
+	|	USE
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }
+	|	DROP
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	THROW
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	KILL
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	UNLOCK
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	OPEN
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	NORTH
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	SOUTH
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	EAST
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	WEST
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	INVENTORY
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	HELP
+				{ puts("1\n"); strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
+	|	MISC_WORD
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("STRING: %s\n", $$.str); }	
 ;
 
 newline		: 	

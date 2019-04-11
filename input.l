@@ -26,15 +26,7 @@ WHITE  [ |\t|\f|\r|\v]
 
 %%
 
-\"([^"]*)\" 	{ strcpy(yylval.str, yytext); return STR_LIT; }
-
-
 {WHITE}
-
-{DIGIT}+ { 
-			strcpy(yylval.str, yytext);
-			return NUMBER; 
-		}
 		
 (?i:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return GO; }
 
@@ -58,7 +50,7 @@ WHITE  [ |\t|\f|\r|\v]
 
 (?i:west|left)							{ strcpy(yylval.str, yytext); return WEST; }
 
-(?i:east|right)							{ strcpy(yylval.str, yytext); return RIGHT; }
+(?i:east|right)							{ strcpy(yylval.str, yytext); return EAST; }
 
 (?i:inventory)							{ strcpy(yylval.str, yytext); return INVENTORY; }
 
