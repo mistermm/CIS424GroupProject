@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX_LEN 500
+#define MAX_FILE_LEN 500
 
 static char input[100];
 
@@ -8,7 +8,7 @@ void print_image(FILE *fptr);
 
 void print_image(FILE *fptr)
 {
-    char readFileString[MAX_LEN];
+    char readFileString[MAX_FILE_LEN];
 
     while(fgets(readFileString,sizeof(readFileString),fptr) != NULL)
         printf("%s",readFileString);
