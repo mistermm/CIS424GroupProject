@@ -1,6 +1,6 @@
 
 go: lex.yy.c input.tab.c 
-	gcc -g input.tab.c lex.yy.c -lfl -ly -o go 
+	gcc -g UserInput.c input.tab.c lex.yy.c -lfl -ly -o go 
 
 lex.yy.c: input.l
 	flex  input.l

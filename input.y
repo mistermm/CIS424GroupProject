@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include <userinput.h>
 //#include "symtab.c"
 
 #define STR_SIZE 512
@@ -24,16 +25,16 @@ void yyerror(char *s);
 
 %}
 
-%token GO GET
-%token USE
-%token DROP
-%token THROW
-%token KILL
-%token UNLOCK
-%token OPEN
-%token NORTH SOUTH EAST WEST
-%token INVENTORY HELP
-%token MISC_WORD
+%token tGO tGET
+%token tUSE
+%token tDROP
+%token tTHROW
+%token tKILL
+%token tUNLOCK
+%token tOPEN
+%token tNORTH tSOUTH tEAST tWEST
+%token tINVENTORY tHELP
+%token tMISC_WORD
 
 %define locations
 
@@ -50,33 +51,33 @@ statement_list : statement_list statement '\n' newline
 		| statement '\n' newline { strncpy($$.str, $1.str, STR_SIZE); }
 		;
 		
-statement	: GO { strncpy($$.str, $1.str, STR_SIZE); } //printf("STRING: %s\n", $$.str); }
-	|	USE
-				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }
-	|	DROP
-				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
-	|	THROW
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	KILL
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	UNLOCK
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	OPEN
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	NORTH
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	SOUTH
-				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
-	|	EAST
-				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
-	|	WEST
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	INVENTORY
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
-	|	HELP
-				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
-	|	MISC_WORD
-				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
+statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tUSE
+				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tDROP
+				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tTHROW
+				{ strncpy($$.str, $1.str, STR_SIZE); }
+	|	tKILL
+				{ strncpy($$.str, $1.str, STR_SIZE); }	
+	|	tUNLOCK
+				{ strncpy($$.str, $1.str, STR_SIZE); }
+	|	tOPEN
+				{ strncpy($$.str, $1.str, STR_SIZE); }
+	|	tNORTH
+				{ strncpy($$.str, $1.str, STR_SIZE); }	
+	|	tSOUTH
+				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tEAST
+				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tWEST
+				{ strncpy($$.str, $1.str, STR_SIZE); }
+	|	tINVENTORY
+				{ strncpy($$.str, $1.str, STR_SIZE); }	
+	|	tHELP
+				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tMISC_WORD
+				{ strncpy($$.str, $1.str, STR_SIZE); }
 ;
 
 newline		: 	
@@ -88,8 +89,9 @@ newline		:
 
 %%
 
+/*
 void main()
 {
 	yyparse();
 }
-
+*/

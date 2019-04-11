@@ -28,35 +28,35 @@ WHITE  [ |\t|\f|\r|\v]
 
 {WHITE}
 		
-(?i:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return GO; }
+(?i:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return tGO; }
 
-(?i:get|obtain|grab|acquire|"pick up")	{ strcpy(yylval.str, yytext); return GET; }
+(?i:get|obtain|grab|acquire|"pick up")	{ strcpy(yylval.str, yytext); return tGET; }
 
-(?i:use|utilize|"make use of")			{ strcpy(yylval.str, yytext); return USE; }
+(?i:use|utilize|"make use of")			{ strcpy(yylval.str, yytext); return tUSE; }
 
-(?i:drop|"let go of"|release)			{ strcpy(yylval.str, yytext); return DROP; }
+(?i:drop|"let go of"|release)			{ strcpy(yylval.str, yytext); return tDROP; }
 
-(?i:throw|hurl|toss|fling|chuck)		{ strcpy(yylval.str, yytext); return THROW; }
+(?i:throw|hurl|toss|fling|chuck)		{ strcpy(yylval.str, yytext); return tTHROW; }
 
-(?i:kill|slaughter|murder|"put to death")	{ strcpy(yylval.str, yytext); return KILL; }
+(?i:kill|slaughter|murder|"put to death")	{ strcpy(yylval.str, yytext); return tKILL; }
 
-(?i:unlock)								{ strcpy(yylval.str, yytext); return UNLOCK; }
+(?i:unlock)								{ strcpy(yylval.str, yytext); return tUNLOCK; }
 
-(?i:open)								{ strcpy(yylval.str, yytext); return OPEN; }
+(?i:open)								{ strcpy(yylval.str, yytext); return tOPEN; }
 
-(?i:north|up)							{ strcpy(yylval.str, yytext); return NORTH; }
+(?i:north|up)							{ strcpy(yylval.str, yytext); return tNORTH; }
 
-(?i:south|down)							{ strcpy(yylval.str, yytext); return SOUTH; }
+(?i:south|down)							{ strcpy(yylval.str, yytext); return tSOUTH; }
 
-(?i:west|left)							{ strcpy(yylval.str, yytext); return WEST; }
+(?i:west|left)							{ strcpy(yylval.str, yytext); return tWEST; }
 
-(?i:east|right)							{ strcpy(yylval.str, yytext); return EAST; }
+(?i:east|right)							{ strcpy(yylval.str, yytext); return tEAST; }
 
-(?i:inventory)							{ strcpy(yylval.str, yytext); return INVENTORY; }
+(?i:inventory)							{ strcpy(yylval.str, yytext); return tINVENTORY; }
 
-(?i:help|"help me"|"i don't know what i'm doing"|\?|directions)	{ strcpy(yylval.str, yytext); return HELP; }
+(?i:help|"help me"|"i don't know what i'm doing"|\?|directions)	{ strcpy(yylval.str, yytext); return tHELP; }
 
-{LETTER}+								{ strcpy(yylval.str, yytext); return MISC_WORD; }
+{LETTER}+								{ strcpy(yylval.str, yytext); return tMISC_WORD; }
 
 \n	{ return yytext[0]; }
 .	{ return yytext[0]; }
