@@ -1,5 +1,9 @@
 %{
 
+//Peter Carle
+//Spring 2019
+//Agile Project: User input module
+
 typedef struct
 {
 	int ival;
@@ -9,7 +13,7 @@ typedef struct
 
 #define YYSTYPE langstruct
 #include <string.h>
-#include "tomlang.tab.h"
+//#include "tomlang.tab.h"
 #define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 
 %}
@@ -22,23 +26,8 @@ WHITE  [ |\t|\f|\r|\v]
 
 %%
 
-vari	{ return VARI; }
-vars	{ return VARS; }
-
-set		{ return SET; }
-to 		{ return TO; }
-
 \"([^"]*)\" 	{ strcpy(yylval.str, yytext); return STR_LIT; }
 
-printi 	{ return PRINTI; }
-printsh	{ return PRINTSH; }
-printsv { return PRINTSV; }
-
-\/{WHITE}*\n
-
-\/\/.*\n
-
-\/\*.*\*\/
 
 {WHITE}
 
@@ -47,16 +36,35 @@ printsv { return PRINTSV; }
 			return NUMBER; 
 		}
 		
-{LETTER}({LETTER}|{DIGIT}|_)* { strcpy(yylval.str, yytext); return VAR_NAME; } 
+(?:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return GO; }
 
-\n  { return yytext[0]; }
 .	{ return yytext[0]; }
 
 %%
 
+/*
+Keywords:
 
-void yyerror(char *s)  /* Called by yyparse on error */
+go proceed move travel walk run
+
+get obtain grab acquire "pick up"
+
+use utilize "make use of"
+
+drop "let go of" release
+
+throw hurl toss fling chuck
+
+kill slaughter murder "put to death"
+
+unlock
+
+open
+*/
+
+/*
+void yyerror(char *s)  /* Called by yyparse on error 
 {
   printf ("\terror: %s\n", s);
   printf ("ERROR: %s at line %d\n", s, yylineno);
-}
+}*/
