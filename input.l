@@ -13,7 +13,7 @@ typedef struct
 
 #define YYSTYPE langstruct
 #include <string.h>
-//#include "tomlang.tab.h"
+#include "input.tab.h"
 #define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 
 %}
@@ -36,7 +36,35 @@ WHITE  [ |\t|\f|\r|\v]
 			return NUMBER; 
 		}
 		
-(?:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return GO; }
+(?i:go|proceed|move|travel|walk|run)	{ strcpy(yylval.str, yytext); return GO; }
+
+(?i:get|obtain|grab|acquire|"pick up")	{ strcpy(yylval.str, yytext); return GET; }
+
+(?i:use|utilize|"make use of")			{ strcpy(yylval.str, yytext); return USE; }
+
+(?i:drop|"let go of"|release)			{ strcpy(yylval.str, yytext); return DROP; }
+
+(?i:throw|hurl|toss|fling|chuck)		{ strcpy(yylval.str, yytext); return THROW; }
+
+(?i:kill|slaughter|murder|"put to death")	{ strcpy(yylval.str, yytext); return KILL; }
+
+(?i:unlock)								{ strcpy(yylval.str, yytext); return UNLOCK; }
+
+(?i:open)								{ strcpy(yylval.str, yytext); return OPEN; }
+
+(?i:north|up)							{ strcpy(yylval.str, yytext); return NORTH; }
+
+(?i:south|down)							{ strcpy(yylval.str, yytext); return SOUTH; }
+
+(?i:west|left)							{ strcpy(yylval.str, yytext); return WEST; }
+
+(?i:east|right)							{ strcpy(yylval.str, yytext); return RIGHT; }
+
+(?i:inventory)							{ strcpy(yylval.str, yytext); return INVENTORY; }
+
+(?i:help|"help me"|"i don't know what i'm doing"|\?|directions)	{ strcpy(yylval.str, yytext); return HELP; }
+
+{LETTER}+								{ strcpy(yylval.str, yytext); return MISC_WORD; }
 
 .	{ return yytext[0]; }
 
@@ -62,9 +90,9 @@ unlock
 open
 */
 
-/*
-void yyerror(char *s)  /* Called by yyparse on error 
+
+void yyerror(char *s)  /* Called by yyparse on error*/ 
 {
   printf ("\terror: %s\n", s);
   printf ("ERROR: %s at line %d\n", s, yylineno);
-}*/
+}
