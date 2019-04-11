@@ -41,7 +41,6 @@ void yyerror(char *s);
 
 program	: statement_list
 	{ printf("STRING: %s\n", $1.str); }
-		| newline
 		;
 
 statement_list : statement_list statement '\n' newline
@@ -75,7 +74,7 @@ statement	: GO { strncpy($$.str, $1.str, STR_SIZE); } //printf("STRING: %s\n", $
 	|	INVENTORY
 				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
 	|	HELP
-				{ puts("1\n"); strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
+				{ strncpy($$.str, $1.str, STR_SIZE);} //printf("STRING: %s\n", $$.str); }	
 	|	MISC_WORD
 				{ strncpy($$.str, $1.str, STR_SIZE); }//printf("STRING: %s\n", $$.str); }	
 ;

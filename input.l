@@ -58,6 +58,7 @@ WHITE  [ |\t|\f|\r|\v]
 
 {LETTER}+								{ strcpy(yylval.str, yytext); return MISC_WORD; }
 
+\n	{ return yytext[0]; }
 .	{ return yytext[0]; }
 
 %%
