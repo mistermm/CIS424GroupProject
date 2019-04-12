@@ -56,6 +56,8 @@ WHITE  [ |\t|\f|\r|\v]
 
 (?i:help|"help me"|"i don't know what i'm doing"|\?|directions)	{ strcpy(yylval.str, yytext); return tHELP; }
 
+(?i:swim) 								{ strcpy(yylval.str, yytext); return tSWIM; }
+
 {LETTER}+								{ strcpy(yylval.str, yytext); return tMISC_WORD; }
 
 \n	{ return yytext[0]; }

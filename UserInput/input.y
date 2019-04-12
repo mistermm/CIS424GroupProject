@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 //#include <userinput.h>
-//#include "symtab.c"
+
 
 #define STR_SIZE 512
 
@@ -34,6 +34,7 @@ void yyerror(char *s);
 %token tOPEN
 %token tNORTH tSOUTH tEAST tWEST
 %token tINVENTORY tHELP
+%token tSWIM
 %token tMISC_WORD
 
 %define locations
@@ -51,7 +52,7 @@ statement_list : statement_list statement '\n' newline
 		| statement '\n' newline { strncpy($$.str, $1.str, STR_SIZE); }
 		;
 		
-statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); } 
+statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); return GO; } 
 	|	tUSE
 				{ strncpy($$.str, $1.str, STR_SIZE); } 
 	|	tDROP
@@ -76,6 +77,8 @@ statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); }
 				{ strncpy($$.str, $1.str, STR_SIZE); }	
 	|	tHELP
 				{ strncpy($$.str, $1.str, STR_SIZE); } 
+	|	tSWIM
+				{ strncpy($$.str, $1.str, STR_SIZE); } 				
 	|	tMISC_WORD
 				{ strncpy($$.str, $1.str, STR_SIZE); }
 ;
