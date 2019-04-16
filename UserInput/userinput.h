@@ -22,4 +22,4 @@
 #define KILL 11
 #define OPEN 12
 #define SWIM 13
-
+#define QUIT 14

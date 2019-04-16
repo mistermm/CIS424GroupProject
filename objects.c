@@ -1,22 +1,24 @@
+/*objects.c, primary author: Jeremy*/
+
 
 #include <stdio.h>
 
 #include <string.h>
 
  
-
+/*
 #define DOOR_OPEN 1;
 
 #define USE 2;
 
 #define THROW 3;
-
+*/
  
 
 int token;
 
  
-
+/*
 struct Object
 
 {
@@ -28,11 +30,11 @@ struct Object
 };
 
 typedef struct Object Object;
-
+*/
  
 
  
-
+/*
 int main()
 
 {
@@ -50,7 +52,6 @@ int main()
  
 
   for(index = 0; index < 3; index++)
-
     arr_obj->Attribute = index;
 
  
@@ -62,7 +63,7 @@ int main()
   Object_Update(token, arr_obj); // Object Update function called passing user input
 
 }
-
+*/
  
 
  
@@ -81,4 +82,9 @@ int Object_Update(int token, Object *arr_obj)
 
 {
 
-  arr_obj->Attribute = DOOR_OPEN;
+	/*  -> changed to . by Peter on April 16th.*/
+  arr_obj.Attribute = token;
+  
+  
+ return 0; 
+}  

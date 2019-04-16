@@ -1,3 +1,7 @@
+/*locations.c, primary author: Damir*/
+
+/*translated from Java to C by Peter*/
+
 import java.util.Scanner;
 
 public class Location { 
@@ -46,11 +50,13 @@ public class Location {
           }
           
           }
+          
+          
          public void Stream (){ 
     	System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("You are at the small stream.");
 		System.out.println("Across the stream you hear voices. You could swim towards them"); /** the player could drown if try to swim **/
-		System.out.println("On your left there is and object"); /** some object to pick up**/
+		System.out.println("On your left there is an object"); /** some object to pick up**/
 		System.out.println("On your right"); /** something **/
 		System.out.println(" What do you want to do ?");
                 System.out.println(" (Hint: try 'Swim' or 'pick up') ");
@@ -64,9 +70,9 @@ public class Location {
                 System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("You are at the Small Cottage.");
 		System.out.println("****"); /** the player could drown if try to swim **/
-		System.out.println("On your left there is and object"); /** some object to pick up**/
+		System.out.println("On your left there is an object"); /** some object to pick up**/
 		System.out.println("On your right"); /** something **/
-		System.out.println(" What do you t to do ?");
+		System.out.println(" What do you want to do ?");
 		System.out.println("\n------------------------------------------------------------------\n");
          }
           }

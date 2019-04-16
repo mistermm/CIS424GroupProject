@@ -1,6 +1,15 @@
+/*main.c, primary author: Sam.*/
+
+
 #include <stdio.h>
 #include <string.h>
 #define MAX_FILE_LEN 500
+
+/*Header files included by Peter, April 16th*/
+#include "locations.h"
+#include "objects.h"
+#include "UserInput/input.tab.h"
+//PC
 
 static char input[100];
 
@@ -43,8 +52,19 @@ static int parse()
 int main()
 {
    char *filename = "titleLoneWanderer.txt";
-
-   FILE *fptr = NULL;
+   int index = 0;
+   int token;
+   
+   /*Jeremy's object struct*/
+	struct Object
+	{
+  		char Str[100];
+  		int Attribute;
+	};
+	typedef struct Object Object;
+   	//PC
+   	
+   	FILE *fptr = NULL;
 
    if ((fptr = fopen(filename,"r")) == NULL)
    {
@@ -57,6 +77,11 @@ int main()
    fclose(fptr);
 
 
+	/*Object array initialization moved into main() from Jeremy's objects.c. file. ~Peter, April 16th~*/
+	Object arr_obj[3];
+	for(index = 0; index < 3; index++)
+    	arr_obj.Attribute = index;
+//PC
 
    printf("Hello...Welcome to The Lone Wanderer.\n");
    printf("You wake up from a deep slumber in a small forest clearing,\n");
@@ -66,7 +91,19 @@ int main()
    printf("Looking towards your right you notice a small stream.\n");
    printf("(Hint: try testing out commands like: go east or go right to begin exploring!)\n");
    printf("What would you like to do?\n");
-   while ( playerInput() && parse() );
+   
+   /*Main input loop altered a bit by Peter on April 16th*/
+   while (1)
+   {
+   		token = yyparse();
+   		
+   		if(token == QUIT)
+   			break;
+   
+   		Object_Update(token, arr_obj);
+   
+   		Location_Update(token, arr_loc);
+   }
 
 
 
