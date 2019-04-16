@@ -32,7 +32,7 @@ void yyerror(char *s);
 %token tKILL
 %token tUNLOCK
 %token tOPEN
-%token tNORTH tSOUTH tEAST tWEST
+%token tUP tDOWN tRIGHT tLEFT
 %token tINVENTORY tHELP
 %token tSWIM
 %token tMISC_WORD
@@ -65,13 +65,13 @@ statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); return GO; }
 				{ strncpy($$.str, $1.str, STR_SIZE); }
 	|	tOPEN
 				{ strncpy($$.str, $1.str, STR_SIZE); }
-	|	tNORTH
+	|	tUP
 				{ strncpy($$.str, $1.str, STR_SIZE); }	
-	|	tSOUTH
+	|	tDOWN
 				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tEAST
+	|	tRIGHT
 				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tWEST
+	|	tLEFT
 				{ strncpy($$.str, $1.str, STR_SIZE); }
 	|	tINVENTORY
 				{ strncpy($$.str, $1.str, STR_SIZE); }	

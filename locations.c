@@ -2,14 +2,15 @@
 
 /*translated from Java to C by Peter*/
 
+/*
 import java.util.Scanner;
 
 public class Location { 
 
-        Scanner myScanner = new Scanner(System.in); /** this is for my keyword input so i can test what i do  **/
+        Scanner myScanner = new Scanner(System.in); /** this is for my keyword input so i can test what i do  
 	      Scanner enterScanner = new Scanner(System.in);
          
-        String choice; /** this is how i pull up the keyword **/
+        String choice;  this is how i pull up the keyword 
           
           
           
@@ -32,7 +33,7 @@ public class Location {
           System.out.println("What would you like to do?\n");
          
           choice = myScanner.nextLine (); 
-           /** using OR for either word **/
+           /** using OR for either word 
           if ("east".equals(choice) || "right".equals(choice) ) {
          enterScanner.nextLine();
           Stream();
@@ -43,7 +44,7 @@ public class Location {
               SmallCottage ();
           }
           
-           /** this brings him to the begining of the game if types anything else, this can be changed **/
+           /** this brings him to the begining of the game if types anything else, this can be changed 
           else { 
                enterScanner.nextLine();
                 Start ();
@@ -55,9 +56,9 @@ public class Location {
          public void Stream (){ 
     	System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("You are at the small stream.");
-		System.out.println("Across the stream you hear voices. You could swim towards them"); /** the player could drown if try to swim **/
-		System.out.println("On your left there is an object"); /** some object to pick up**/
-		System.out.println("On your right"); /** something **/
+		System.out.println("Across the stream you hear voices. You could swim towards them"); /** the player could drown if try to swim 
+		System.out.println("On your left there is an object"); /** some object to pick up
+		System.out.println("On your right"); /** something 
 		System.out.println(" What do you want to do ?");
                 System.out.println(" (Hint: try 'Swim' or 'pick up') ");
 		System.out.println("\n------------------------------------------------------------------\n");
@@ -69,18 +70,26 @@ public class Location {
              
                 System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("You are at the Small Cottage.");
-		System.out.println("****"); /** the player could drown if try to swim **/
-		System.out.println("On your left there is an object"); /** some object to pick up**/
-		System.out.println("On your right"); /** something **/
+		System.out.println("****"); /** the player could drown if try to swim 
+		System.out.println("On your left there is an object"); /** some object to pick up
+		System.out.println("On your right"); /** something 
 		System.out.println(" What do you want to do ?");
 		System.out.println("\n------------------------------------------------------------------\n");
          }
           }
 
-   
+*/   
           
        
+int Location_Update(int token)
+{
 
+
+
+
+
+	return token;
+}
 
 
 

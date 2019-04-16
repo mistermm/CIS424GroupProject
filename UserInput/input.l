@@ -44,13 +44,13 @@ WHITE  [ |\t|\f|\r|\v]
 
 (?i:open)								{ strcpy(yylval.str, yytext); return tOPEN; }
 
-(?i:north|up)							{ strcpy(yylval.str, yytext); return tNORTH; }
+(?i:north|up)							{ strcpy(yylval.str, yytext); return tUP; }
 
-(?i:south|down)							{ strcpy(yylval.str, yytext); return tSOUTH; }
+(?i:south|down)							{ strcpy(yylval.str, yytext); return tDOWN; }
 
-(?i:west|left)							{ strcpy(yylval.str, yytext); return tWEST; }
+(?i:west|left)							{ strcpy(yylval.str, yytext); return tLEFT; }
 
-(?i:east|right)							{ strcpy(yylval.str, yytext); return tEAST; }
+(?i:east|right)							{ strcpy(yylval.str, yytext); return tRIGHT; }
 
 (?i:inventory)							{ strcpy(yylval.str, yytext); return tINVENTORY; }
 

@@ -5,13 +5,15 @@
 #include <string.h>
 #define MAX_FILE_LEN 500
 
+
 /*Header files included by Peter, April 16th*/
 #include "locations.h"
 #include "objects.h"
 #include "UserInput/input.tab.h"
+#include "UserInput/userinput.h"
 //PC
 
-static char input[100];
+static char input[STR_SIZE];
 
 void printImage(FILE *fptr);
 
@@ -58,11 +60,39 @@ int main()
    /*Jeremy's object struct*/
 	struct Object
 	{
-  		char Str[100];
+  		char Str[STR_SIZE];
   		int Attribute;
 	};
 	typedef struct Object Object;
    	//PC
+   	
+   	/*Implementation of location struct by Peter on April 16th*/
+   	struct Loc
+   	{
+   		char name[STR_SIZE];
+   		
+   		int player_present;
+   		
+   		int obj_front;
+   		char name_obj_front[STR_SIZE];
+   		
+   		int obj_back;
+   		char name_obj_back[STR_SIZE];
+   		
+   		int obj_left;
+   		char name_obj_left[STR_SIZE];
+   		
+   		int obj_right;
+   		char name_obj_right[STR_SIZE];
+   		
+   		int door_front;
+   		int door_back;
+   		int door_left;
+   		int door_right;
+   	};
+   	typedef struct Loc Loc;
+   	//PC
+   	
    	
    	FILE *fptr = NULL;
 
@@ -78,10 +108,34 @@ int main()
 
 
 	/*Object array initialization moved into main() from Jeremy's objects.c. file. ~Peter, April 16th~*/
-	Object arr_obj[3];
-	for(index = 0; index < 3; index++)
+	Object arr_obj[NUMBER_OF_OBJECTS];
+	for(index = 0; index < NUMBER_OF_OBJECTS; index++)
     	arr_obj.Attribute = index;
 //PC
+
+	Loc arr_loc[NUMBER_OF_ROOMS];
+	/*Default blank/unlocked values for room attributes: Peter, April 16th*/
+	for(index = 0; index < NUMBER_OF_ROOMS; index++)
+	{
+		arr_loc[index].player_present = 0;
+	
+		arr_loc[index].obj_front = 0;
+		arr_loc[index].obj_back = 0;
+		arr_loc[index].obj_left = 0;
+		arr_loc[index].obj_right = 0;
+		
+		arr_loc[index].door_front = 0;
+		arr_loc[index].door_back = 0;
+		arr_loc[index].door_left = 0;
+		arr_loc[index].door_right = 0;
+	}
+	
+	
+	/*Initialization of Damir's locations: Peter, April 16th*/
+	
+	/*Room 0: Clearing*/
+	arr_loc[0].player_present = 1;
+	arr_loc[0].door_back = 1; /*Locked.*/
 
    printf("Hello...Welcome to The Lone Wanderer.\n");
    printf("You wake up from a deep slumber in a small forest clearing,\n");
