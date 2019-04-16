@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#define MAX_FILE_LEN 500
-
+//#define MAX_FILE_LEN 500
+/*Definition moved to userinput.h*/
 
 /*Header files included by Peter, April 16th*/
 #include "locations.h"
@@ -25,6 +25,7 @@ void printImage(FILE *fptr)
         printf("%s",readFileString);
 }
 
+/*
 static int playerInput()
 {
     printf("\n> ");
@@ -50,48 +51,15 @@ static int parse()
     }
     return 1;
 }
+*/
 
 int main()
 {
    char *filename = "titleLoneWanderer.txt";
    int index = 0;
    int token;
-   
-   /*Jeremy's object struct*/
-	struct Object
-	{
-  		char Str[STR_SIZE];
-  		int Attribute;
-	};
-	typedef struct Object Object;
-   	//PC
-   	
-   	/*Implementation of location struct by Peter on April 16th*/
-   	struct Loc
-   	{
-   		char name[STR_SIZE];
-   		
-   		int player_present;
-   		
-   		int obj_front;
-   		char name_obj_front[STR_SIZE];
-   		
-   		int obj_back;
-   		char name_obj_back[STR_SIZE];
-   		
-   		int obj_left;
-   		char name_obj_left[STR_SIZE];
-   		
-   		int obj_right;
-   		char name_obj_right[STR_SIZE];
-   		
-   		int door_front;
-   		int door_back;
-   		int door_left;
-   		int door_right;
-   	};
-   	typedef struct Loc Loc;
-   	//PC
+   int room = 0;
+
    	
    	
    	FILE *fptr = NULL;
@@ -156,7 +124,7 @@ int main()
    
    		Object_Update(token, arr_obj);
    
-   		Location_Update(token, arr_loc);
+   		Location_Update(token, room, arr_loc);
    }
 
 

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_FILE_LEN 500
 #define STR_SIZE 100
 #define NUMBER_OF_OBJECTS 3
 #define NUMBER_OF_ROOMS 4
