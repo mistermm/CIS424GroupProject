@@ -1,11 +1,10 @@
-
 #include <stdio.h>
 
 #include <string.h>
 
  
 
-#define DOOR_OPEN 1;
+#define OPEN 1;
 
 #define USE 2;
 
@@ -13,21 +12,17 @@
 
  
 
-int token;
-
- 
-
-struct Object
+struct UserInventory
 
 {
 
-  char Str[100];
+  int  Key[3]; 
 
-  int Attribute;
+  char *Str[100];
 
 };
 
-typedef struct Object Object;
+typedef struct UserInventory UserInventory;
 
  
 
@@ -37,29 +32,55 @@ int main()
 
 {
 
-  int Object_Update(int token, Object *arr_obj);
-
- 
-
-  Object arr_obj[3];
-
- 
-
   int index = 0;
 
+  int token;
+
  
+
+  int UserInventory_Update(int token, UserInventory *arr_obj);
+
+  int UserInventory_List(UserInventory *arr_obj);
+
+ 
+
+  UserInventory arr_obj[3]; // Define arr_obj
+
+ 
+
+  // Populate the UserInventory with values
 
   for(index = 0; index < 3; index++)
 
-    arr_obj->Attribute = index;
+    {
+
+      arr_obj[0].Key[index] = index;
+
+      arr_obj[0].Str[index] = "Missing Necessary Key:Keep Searching";
 
  
 
-  token = 2; // User Inputs 2
+    }
 
  
 
-  Object_Update(token, arr_obj); // Object Update function called passing user input
+  // Ask for user input
+
+  printf("\nEnter token:"); 
+
+  scanf("%d", &token); //User Input
+
+ 
+
+  // Object Update function called passing user input
+
+  UserInventory_Update(token, arr_obj);
+
+ 
+
+  // Print out contents of Object
+
+  UserInventory_List(arr_obj);
 
 }
 
@@ -69,16 +90,42 @@ int main()
 
 /*
 
-Function: Object_Update
+  Function: UserInventory_Update
 
-Purpose:  Receive the token from user and update Attribute
+  Purpose:  Receive the token from user and update
 
 */
 
  
 
-int Object_Update(int token, Object *arr_obj)
+int UserInventory_Update(int token, UserInventory *arr_obj)
 
 {
 
-  arr_obj->Attribute = DOOR_OPEN;
+  arr_obj[0].Str[token] = "Door is Open";
+
+}
+
+ 
+
+/*
+
+  Function: UserInventory_List
+
+  Purpose:  Print out contents of UserInventory
+
+*/
+
+ 
+
+int UserInventory_List(UserInventory *arr_obj)
+
+{
+
+  int index = 0;
+
+ 
+
+  for(index = 0; index < 3; index++)
+
+    printf("Token: %d has a value of: %s\n", arr_obj[0].Key[index], arr_obj[0].Str[index]);
