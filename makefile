@@ -1,16 +1,24 @@
 
-game: lex.yy.c input.tab.c 
-	gcc -g main.c UserInput/input.tab.c UserInput/lex.yy.c -lfl -ly -o game 
+game: lex.yy.c input.tab.c objects.o locations.o main.c 
+	gcc -g -o game -Wl,--start-group main.c input.tab.c lex.yy.c objects.o locations.o -lfl -ly -Wl,--end-group
 
-UserInput/lex.yy.c: input.l
-	flex  UserInput/input.l
+objects.o: userinput.h objects.h objects.c
+	gcc -g -o objects.o objects.c 
+	
+locations.o: userinput.h locations.h locations.c
+	gcc -g -o locations.o locations.c 
 
-UserInput/input.tab.c: input.y
-	bison -dv UserInput/input.y
+lex.yy.c: input.l
+	flex  input.l
+
+input.tab.c: input.y
+	bison -dv input.y
 
 clean:
-	rm -f UserInput/lex.yy.c 
-	rm -f UserInput/input.output
-	rm -f UserInput/input.tab.h
-	rm -f UserInput/input.tab.c
-	rm -f UserInput/game 
+	rm -f lex.yy.c 
+	rm -f input.output
+	rm -f input.tab.h
+	rm -f input.tab.c
+	rm -f objects.o
+	rm -f locations.o
+	rm -f game 

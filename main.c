@@ -9,8 +9,8 @@
 /*Header files included by Peter, April 16th*/
 #include "locations.h"
 #include "objects.h"
-#include "UserInput/input.tab.h"
-#include "UserInput/userinput.h"
+#include "input.tab.h"
+#include "userinput.h"
 //PC
 
 static char input[STR_SIZE];
@@ -78,7 +78,7 @@ int main()
 	/*Object array initialization moved into main() from Jeremy's objects.c. file. ~Peter, April 16th~*/
 	Object arr_obj[NUMBER_OF_OBJECTS];
 	for(index = 0; index < NUMBER_OF_OBJECTS; index++)
-    	arr_obj.Attribute = index;
+    	arr_obj->Attribute = index;
 //PC
 
 	Loc arr_loc[NUMBER_OF_ROOMS];

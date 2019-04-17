@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "UserInput/userinput.h"
+#include "userinput.h"
 
    	/*Implementation of location struct by Peter on April 16th*/
    	struct Loc
@@ -32,6 +32,6 @@
    	//PC
    	
 
-int Location_Update(int token, int room, Loc* arr_loc[NUMBER_OF_ROOMS]); 
+int Location_Update(int token, int room, Loc arr_loc[NUMBER_OF_ROOMS]); 
 
 

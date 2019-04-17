@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "UserInput/userinput.h"
+#include "userinput.h"
 
    /*Jeremy's object struct*/
 struct Object
@@ -13,5 +13,5 @@ struct Object
 typedef struct Object Object;
 //PC
 
-int Object_Update(int token, Object* arr_obj[NUMBER_OF_OBJECTS]);
+int Object_Update(int token, Object arr_obj[NUMBER_OF_OBJECTS]);
 

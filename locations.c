@@ -2,8 +2,14 @@
 
 /*translated from Java to C by Peter*/
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "userinput.h"
+
+
 /*
 import java.util.Scanner;
+
 
 public class Location { 
 
