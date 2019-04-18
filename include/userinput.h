@@ -7,8 +7,10 @@
 
 #define MAX_FILE_LEN 500
 #define STR_SIZE 100
+
 #define NUMBER_OF_OBJECTS 3
 #define NUMBER_OF_ROOMS 4
+#define NUMBER_OF_KEYS 3
 
 /*basic user actions*/
 #define USE 0
@@ -25,10 +27,12 @@
 #define INVENTORY 9
 #define QUIT 14
 
+/*other actions*/
 #define UNLOCK 10
 #define KILL 11
 #define OPEN 12
 #define SWIM 13
+#define THROW 21
 
 /*attributes*/
 #define LOCKED 15

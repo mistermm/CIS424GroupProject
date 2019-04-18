@@ -85,7 +85,7 @@ int Object_Update(int token, Object *arr_obj)
 
 {
 
-  arr_obj->Attribute = token;
+  arr_obj->Attribute* = token;
   
   
  return 0; 

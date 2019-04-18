@@ -78,7 +78,11 @@ int main()
 	/*Object array initialization moved into main() from Jeremy's objects.c. file. ~Peter, April 16th~*/
 	Object arr_obj[NUMBER_OF_OBJECTS];
 	for(index = 0; index < NUMBER_OF_OBJECTS; index++)
-    	arr_obj->Attribute = index;
+    {
+    	arr_obj[0].Key[index] = 0;
+
+      	strcpy(arr_obj[0].Str[index], "Missing Necessary Key: Keep Searching\n");    
+    }
 //PC
 
 	Loc arr_loc[NUMBER_OF_ROOMS];
@@ -105,7 +109,7 @@ int main()
 	arr_loc[0].player_present = 1;
 	arr_loc[0].door_back = 1; /*Locked.*/
 
-   printf("Hello...Welcome to The Lone Wanderer.\n");
+   printf("Hello...Welcome to The Lone Wanderer.\n\n");
    printf("You wake up from a deep slumber in a small forest clearing,\n");
    printf("quickly realizing nothing around you seems familiar,\nyou stumble to your feet and begin dusting yourself off to take a look around...\n\n");
    printf("Directly in front of you there is a dirt road that cuts between the trees.\n");
@@ -121,10 +125,13 @@ int main()
    		
    		if(token == QUIT)
    			break;
+   			
+   		if(token == UP)
+   			printf("TEST: UP command received. YACC is working.\n");
    
-   		Object_Update(token, arr_obj);
+   		//Object_Update(token, arr_obj);
    
-   		Location_Update(token, room, arr_loc);
+   		//Location_Update(token, room, arr_loc);
    }
 
 

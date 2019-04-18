@@ -42,6 +42,7 @@ void yyerror(char *s);
 
 %%
 
+/*
 program	: statement_list
 	{ printf("STRING: %s\n", $1.str); }
 		;
@@ -52,45 +53,52 @@ statement_list : statement_list statement '\n' newline
 														
 		| statement '\n' newline { strncpy($$.str, $1.str, STR_SIZE); }
 		;
+*/
 		
-statement	: tGO { strncpy($$.str, $1.str, STR_SIZE); return GO; } 
-	|	tUSE
-				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tDROP
-				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tTHROW
-				{ strncpy($$.str, $1.str, STR_SIZE); }
-	|	tKILL
-				{ strncpy($$.str, $1.str, STR_SIZE); }	
-	|	tUNLOCK
-				{ strncpy($$.str, $1.str, STR_SIZE); }
-	|	tOPEN
-				{ strncpy($$.str, $1.str, STR_SIZE); }
-	|	tUP
-				{ strncpy($$.str, $1.str, STR_SIZE); }	
-	|	tDOWN
-				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tRIGHT
-				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tLEFT
-				{ strncpy($$.str, $1.str, STR_SIZE); }
-	|	tINVENTORY
-				{ strncpy($$.str, $1.str, STR_SIZE); }	
-	|	tHELP
-				{ strncpy($$.str, $1.str, STR_SIZE); } 
-	|	tSWIM
-				{ strncpy($$.str, $1.str, STR_SIZE); } 				
-	|	tMISC_WORD
-				{ strncpy($$.str, $1.str, STR_SIZE); }
+statement	: tGO '\n'
+				 { strncpy($$.str, $1.str, STR_SIZE); return GO; } 
+	|	tUSE '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return USE; } 
+	|	tDROP '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return DROP; } 
+	|	tTHROW '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return THROW; }
+	|	tKILL '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return KILL; }	
+	|	tUNLOCK '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return UNLOCK; }
+	|	tOPEN '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return OPEN; }
+	|	tUP '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return UP; }	
+	|	tDOWN '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return DOWN; } 
+	|	tRIGHT '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return RIGHT; } 
+	|	tLEFT '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return LEFT; }
+	|	tINVENTORY '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return INVENTORY; }	
+	|	tHELP '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return HELP; } 
+	|	tSWIM '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return SWIM; }
+	|	tGET '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return GET; } 	
+	|	tQUIT '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); return QUIT; }			
+	|	tMISC_WORD '\n'
+				{ strncpy($$.str, $1.str, STR_SIZE); printf("Miscellaneous words not yet implemented.\n"); }
 ;
 
+/*
 newline		: 	
 				'\n' newline	
-									{ /*Eat the trailing newlines.*/ }
+									{ /*Eat the trailing newlines. }
 			|						
 									
 			;
-
+*/
 %%
 
 /*

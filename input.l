@@ -58,6 +58,8 @@ WHITE  [ |\t|\f|\r|\v]
 
 (?i:swim) 								{ strcpy(yylval.str, yytext); return tSWIM; }
 
+(?i:quit|exit|"close game"|"abandon duties")	{ strcpy(yylval.str, yytext); return tQUIT; }
+
 {LETTER}+								{ strcpy(yylval.str, yytext); return tMISC_WORD; }
 
 \n	{ return yytext[0]; }

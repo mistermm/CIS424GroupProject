@@ -1,3 +1,5 @@
+#Makefile by Peter, April 18th.
+
 CC=gcc
 
 #Tells GCC which directory to check for header files
