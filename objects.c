@@ -4,7 +4,9 @@
 #include <stdio.h>
 
 #include <string.h>
+
 #include "include/userinput.h"
+#include "include/objects.h"
 
  
 /*
@@ -83,8 +85,7 @@ int Object_Update(int token, Object *arr_obj)
 
 {
 
-	/*  -> changed to . by Peter on April 16th.*/
-  arr_obj.Attribute = token;
+  arr_obj->Attribute = token;
   
   
  return 0; 

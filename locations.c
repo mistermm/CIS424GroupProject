@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/userinput.h"
+#include "include/locations.h"
 
 
 /*
@@ -87,7 +88,7 @@ public class Location {
 */   
           
        
-int Location_Update(int token, int room)
+int Location_Update(int token, int room, Loc arr_loc[NUMBER_OF_ROOMS])
 {
 
 

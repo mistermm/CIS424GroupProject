@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "userinput.h"
+#include "include/userinput.h"
 
 
 //#define STR_SIZE 512

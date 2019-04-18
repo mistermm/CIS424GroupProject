@@ -13,7 +13,7 @@ typedef struct
 
 #define YYSTYPE langstruct
 #include <string.h>
-#include "input.tab.h"
+#include "include/input.tab.h"
 #define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 
 %}
