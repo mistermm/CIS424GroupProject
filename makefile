@@ -24,6 +24,20 @@ OBJ = $(patsubst %,$(ODIR)/%, $(_OBJ))
 game: $(OBJ) main.c $(DEPS)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
+#Runs YACC to generate parse table for user input
+input.tab.c: input.y
+	bison -dv input.y
+	mv input.tab.h $(IDIR)
+
+./include/input.tab.h: input.y
+	bison -dv input.y
+	mv input.tab.h $(IDIR)
+
+#Runs Lex to generate lexical scanner
+lex.yy.c: input.l ./include/input.tab.h 
+	flex  input.l
+	touch compdone.txt
+
 #4 commands to compile individual object components before they can be integrated with main()
 
 $(ODIR)/lex.yy.o : lex.yy.c ./include/input.tab.h 
@@ -38,14 +52,6 @@ $(ODIR)/objects.o : objects.c ./include/objects.h
 $(ODIR)/locations.o : locations.c ./include/locations.h
 	$(CC) -c -o $@ locations.c $(CFLAGS)
 
-#Runs Lex to generate lexical scanner
-lex.yy.c: input.l
-	flex  input.l
-
-#Runs YACC to generate parse table for user input
-input.tab.c: input.y
-	bison -dv input.y
-	mv input.tab.h $(IDIR)
 
 .PHONY: clean
 

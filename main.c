@@ -81,7 +81,7 @@ int main()
     {
     	arr_obj[0].Key[index] = 0;
 
-      	strcpy(arr_obj[0].Str[index], "Missing Necessary Key: Keep Searching\n");    
+      	strcpy(arr_obj[0].Str, "Missing Necessary Key: Keep Searching\n");    
     }
 //PC
 

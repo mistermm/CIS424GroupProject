@@ -34,7 +34,7 @@ void yyerror(char *s);
 %token tUNLOCK
 %token tOPEN
 %token tUP tDOWN tRIGHT tLEFT
-%token tINVENTORY tHELP
+%token tINVENTORY tHELP tQUIT
 %token tSWIM
 %token tMISC_WORD
 
