@@ -7,10 +7,10 @@
 /*Definition moved to userinput.h*/
 
 /*Header files included by Peter, April 16th*/
-#include "locations.h"
-#include "objects.h"
-#include "input.tab.h"
-#include "userinput.h"
+#include "include/locations.h"
+#include "include/objects.h"
+#include "include/input.tab.h"
+#include "include/userinput.h"
 //PC
 
 static char input[STR_SIZE];
